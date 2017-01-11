@@ -28,8 +28,12 @@ module eight_bit_suber ( in_a, in_b, out ); // a - b
     input  [7:0] in_a, in_b;
     output [8:0] out;
     wire   [7:0] in_b_invert;
+    wire   [8:0] postout;
     toggle_twos_comp inveter(in_b, in_b_invert);
-    eight_bit_adder adder(in_a, in_b_invert, out);
+    eight_bit_adder adder(in_a, in_b_invert, postout);
+    assign out[7:0] = postout[7:0];
+    assign out[8]   = postout[8] & (in_a[7] ^ in_b[7]);
+
 endmodule // eight_bit_suber
 
 `endif //SUB_V
