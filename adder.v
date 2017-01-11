@@ -1,3 +1,6 @@
+`ifndef ADDER_V
+`define ADDER_V
+
 module full_adder ( in_a, in_b, in_c, out_s, out_c);
     input  in_a, in_b ,in_c;
     output out_c, out_s;
@@ -24,3 +27,5 @@ module eight_bit_adder( in_a, in_b, out );
 
     assign out[8] = carrier[7] | (~in_a[7] & ~in_b[7] & out[7]);
 endmodule // 8bit_adder
+
+`endif // ADDER_V
