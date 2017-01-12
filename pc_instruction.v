@@ -1,24 +1,11 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:    20:16:10 01/05/2017 
-// Design Name: 
-// Module Name:    pc_instruction 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
-module pc_instruction( input clk, input hold, input reset, output [19:0] instruction );
+`ifndef PC_INSTRUCTION
+`define PC_INSTRUCTION
+module pc_instruction(
+		input clk,
+		input hold,
+		input reset,
+		output [19:0] instruction
+	);
 
 reg [4:0]  pc;
 reg [19:0] data [31:0];
@@ -66,3 +53,5 @@ always @( posedge clk )begin
 end
 
 endmodule
+
+`endif//PC_INSTRUCTION
