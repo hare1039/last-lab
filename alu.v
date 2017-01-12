@@ -19,7 +19,7 @@ module alu (in_a, in_b, s_opcode, out_result);
     eight_bit_not   T_T(in_a,       not_result);
 
     assign out_result = (s_opcode == `sOP_NULL)? {1'b0 ,in_a}:
-                        (s_opcode == `sOP_ADD )? and_result  :
+                        (s_opcode == `sOP_ADD )? add_result  :
                         (s_opcode == `sOP_SUB )? sub_result  :
                         (s_opcode == `sOP_AND )? and_result  :
                         (s_opcode == `sOP_OR  )? or_result   :

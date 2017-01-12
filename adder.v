@@ -25,7 +25,8 @@ module eight_bit_adder( in_a, in_b, out );
     full_adder a6(in_a[6], in_b[6], carrier[5], out[6], carrier[6]);
     full_adder a7(in_a[7], in_b[7], carrier[6], out[7], carrier[7]);
 
-    assign out[8] = carrier[7] | (~in_a[7] & ~in_b[7] & out[7]);
+    assign out[8] = (~in_a[7] & ~in_b[7] & carrier[6]) | (in_a[7] & in_b[7] & ~carrier[6]);
+    //assign out[8] = carrier[7] | (~in_a[7] & ~in_b[7] & out[7]);
 endmodule // 8bit_adder
 
 `endif // ADDER_V
