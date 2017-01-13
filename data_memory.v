@@ -3,6 +3,7 @@
 module data_memory(
 		input        reset,
 		input        clk,
+		input        hold,
 		input  [1:0] write_id,
 		input  [7:0] new_data,
 		output [7:0] reg1,
@@ -18,7 +19,17 @@ module data_memory(
 	assign reg4 = register[3];
 
 	always @ ( negedge clk ) begin
-		register[write_id] <= new_data;
+	    if(reset) begin
+			register[0] <= 8'd0;
+			register[1] <= 8'd0;
+			register[2] <= 8'd0;
+            register[3] <= 8'd0;
+		end
+		else if(hold) begin
+			register[write_id] <= register[write_id];
+		end
+		else
+			register[write_id] <= new_data;
 	end
 endmodule
 

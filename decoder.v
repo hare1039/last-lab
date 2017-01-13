@@ -1,6 +1,5 @@
 `ifndef DECODER_V
 `define DECODER_V
-//`include "define_vars.v"
 
 module decode(org, small_code);
     input [3:0] org;
